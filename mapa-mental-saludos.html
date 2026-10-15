@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mapa mental: Saludos y presentaciones</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,500..800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    --paper: #F2F4FA;
+    --surface: #FFFFFF;
+    --ink: #1B2240;
+    --muted: #565E78;
+    --line: #C9CFE0;
+    --hub: #22306B;
+    --hub-ink: #FFFFFF;
+    --on-c: #FFFFFF;
+    --sun: #A86500;
+    --teal: #12786A;
+    --rose: #B3305F;
+    --blue: #2F57BD;
+    --violet: #6544AA;
+    --leaf: #467A1F;
+    --display: "Bricolage Grotesque", "Trebuchet MS", "Segoe UI", system-ui, sans-serif;
+    --body: "Atkinson Hyperlegible", "Segoe UI", system-ui, -apple-system, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #0F1328;
+      --surface: #171D37;
+      --ink: #EDEFF8;
+      --muted: #A5ACC6;
+      --line: #343C5E;
+      --hub: #3B4DAA;
+      --hub-ink: #FFFFFF;
+      --on-c: #0F1328;
+      --sun: #F0B048;
+      --teal: #45C4AC;
+      --rose: #EE7AA5;
+      --blue: #86A6F4;
+      --violet: #B095EE;
+      --leaf: #94C866;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #0F1328;
+    --surface: #171D37;
+    --ink: #EDEFF8;
+    --muted: #A5ACC6;
+    --line: #343C5E;
+    --hub: #3B4DAA;
+    --hub-ink: #FFFFFF;
+    --on-c: #0F1328;
+    --sun: #F0B048;
+    --teal: #45C4AC;
+    --rose: #EE7AA5;
+    --blue: #86A6F4;
+    --violet: #B095EE;
+    --leaf: #94C866;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 1rem;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 28px 20px 40px; }
+
+  .intro { max-width: 62ch; margin: 0 0 28px; color: var(--muted); font-size: 1.05rem; }
+  .intro strong { color: var(--ink); }
+
+  /* ---------- Mapa ---------- */
+  .map { position: relative; }
+  .links { position: absolute; inset: 0; pointer-events: none; z-index: 0; overflow: visible; }
+  .links path { fill: none; stroke-width: 3; stroke-linecap: round; }
+  .links circle { stroke: none; }
+
+  .hub {
+    position: relative; z-index: 1;
+    background: var(--hub); color: var(--hub-ink);
+    border-radius: 32px;
+    padding: 26px 26px 24px;
+    text-align: center;
+  }
+  .hub::after {
+    content: ""; position: absolute; bottom: -14px; left: 50%;
+    width: 28px; height: 28px; background: var(--hub);
+    transform: translateX(-50%) rotate(45deg); border-radius: 4px;
+  }
+  .hub-hello {
+    font-family: var(--display); font-weight: 800;
+    font-size: clamp(3rem, 9vw, 4.6rem); line-height: .95;
+    letter-spacing: -0.02em; margin: 0;
+  }
+  .hub h1 {
+    font-family: var(--display); font-weight: 700;
+    font-size: 1.35rem; line-height: 1.2; margin: 14px 0 4px;
+  }
+  .hub p.pt { margin: 0; opacity: .85; font-size: .98rem; }
+
+  .side { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 18px; }
+
+  .branch {
+    position: relative;
+    background: var(--surface);
+    background: color-mix(in srgb, var(--c) 10%, var(--surface));
+    border: 2px solid color-mix(in srgb, var(--c) 35%, transparent);
+    border-radius: 18px;
+    padding: 14px 16px 12px;
+  }
+  .branch h2 {
+    display: inline-flex; flex-wrap: wrap; align-items: baseline; gap: 2px 8px;
+    margin: 0 0 10px; padding: 6px 14px;
+    background: var(--c); color: var(--on-c);
+    border-radius: 999px;
+    font-family: var(--display); font-weight: 700; font-size: 1.15rem; line-height: 1.25;
+  }
+  .branch h2 .pt { font-family: var(--body); font-weight: 400; font-size: .88rem; opacity: .92; }
+  .branch ul { list-style: none; margin: 0; padding: 0 0 0 14px; border-left: 2px solid var(--c); }
+  .branch li { position: relative; padding: 5px 0 5px 12px; }
+  .branch li::before {
+    content: ""; position: absolute; left: -15px; top: 15px;
+    width: 12px; height: 2px; background: var(--c);
+  }
+  .branch li b { font-weight: 700; font-size: 1.04rem; }
+  .branch li span { display: block; color: var(--muted); font-size: .93rem; line-height: 1.35; }
+
+  /* Celular: árvore vertical */
+  @media (max-width: 899px) {
+    .hub { margin-bottom: 30px; }
+    .side { padding-left: 22px; border-left: 3px solid var(--line); margin-left: 8px; }
+    .side.right { padding-top: 18px; }
+    .side.left { padding-top: 4px; }
+    .branch::before {
+      content: ""; position: absolute; left: -24px; top: 26px;
+      width: 22px; height: 3px; background: var(--line);
+    }
+    .links { display: none; }
+  }
+
+  /* Computador: mapa radial com ramos dos dois lados */
+  @media (min-width: 900px) {
+    .map {
+      display: grid;
+      grid-template-columns: 1fr minmax(240px, 280px) 1fr;
+      column-gap: 72px;
+      align-items: center;
+    }
+    .side.left { grid-column: 1; grid-row: 1; }
+    .hub { grid-column: 2; grid-row: 1; }
+    .side.right { grid-column: 3; grid-row: 1; }
+    .side.left .branch { text-align: right; }
+    .side.left .branch ul { padding: 0 14px 0 0; border-left: 0; border-right: 2px solid var(--c); }
+    .side.left .branch li { padding: 5px 12px 5px 0; }
+    .side.left .branch li::before { left: auto; right: -15px; }
+  }
+
+  /* ---------- Extras ---------- */
+  .extras { display: grid; gap: 20px; margin-top: 40px; }
+  @media (min-width: 900px) { .extras { grid-template-columns: 1fr 1fr; } }
+  .box {
+    background: var(--surface); border: 2px solid var(--line);
+    border-radius: 22px; padding: 20px 22px;
+  }
+  .box h2 {
+    font-family: var(--display); font-weight: 700; font-size: 1.3rem;
+    margin: 0 0 12px; line-height: 1.2;
+  }
+  .traps { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+  .traps li { padding-left: 16px; border-left: 4px solid var(--rose); }
+  .dialog { margin: 0; display: grid; gap: 10px; }
+  .line { max-width: 88%; padding: 10px 14px; border-radius: 16px; }
+  .line.a { background: color-mix(in srgb, var(--teal) 14%, var(--surface)); border-bottom-left-radius: 4px; }
+  .line.b { background: color-mix(in srgb, var(--blue) 14%, var(--surface)); border-bottom-right-radius: 4px; justify-self: end; }
+  .line .who { display: block; font-size: .82rem; color: var(--muted); }
+  .line .tr { display: block; font-size: .9rem; color: var(--muted); }
+
+  footer { margin-top: 32px; color: var(--muted); font-size: .9rem; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .links.drawn path { transition: stroke-dashoffset 900ms ease-out; }
+  }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <p class="intro">Tudo o que você precisa para <strong>dizer olá, se apresentar e se despedir</strong> em espanhol. Comece pelo centro e siga cada ramo até as pontas.</p>
+
+  <div class="map" id="map">
+    <svg class="links" id="links" aria-hidden="true"></svg>
+
+    <div class="hub" id="hub">
+      <p class="hub-hello" lang="es">¡Hola!</p>
+      <h1 lang="es">Saludos y presentaciones</h1>
+      <p class="pt">Cumprimentar e se apresentar</p>
+    </div>
+
+    <div class="side left">
+      <section class="branch" data-color="sun" style="--c: var(--sun)">
+        <h2><span lang="es">Saludar</span><span class="pt">cumprimentar</span></h2>
+        <ul lang="es">
+          <li><b>¡Hola!</b><span lang="pt-BR">oi, olá</span></li>
+          <li><b>Buenos días</b><span lang="pt-BR">bom dia, até o meio-dia</span></li>
+          <li><b>Buenas tardes</b><span lang="pt-BR">boa tarde, até escurecer</span></li>
+          <li><b>Buenas noches</b><span lang="pt-BR">boa noite, ao chegar ou ao sair</span></li>
+        </ul>
+      </section>
+
+      <section class="branch" data-color="teal" style="--c: var(--teal)">
+        <h2><span lang="es">¿Cómo estás?</span><span class="pt">perguntar como vai</span></h2>
+        <ul lang="es">
+          <li><b>¿Qué tal?</b><span lang="pt-BR">tudo bem? (informal)</span></li>
+          <li><b>¿Cómo estás?</b><span lang="pt-BR">como você está?</span></li>
+          <li><b>¿Cómo está usted?</b><span lang="pt-BR">como o senhor / a senhora está?</span></li>
+          <li><b>Bien, gracias. ¿Y tú?</b><span lang="pt-BR">bem, obrigado. E você?</span></li>
+        </ul>
+      </section>
+
+      <section class="branch" data-color="rose" style="--c: var(--rose)">
+        <h2><span lang="es">Presentarse</span><span class="pt">se apresentar</span></h2>
+        <ul lang="es">
+          <li><b>Me llamo Ana</b><span lang="pt-BR">meu nome é Ana</span></li>
+          <li><b>Soy de Brasil</b><span lang="pt-BR">sou do Brasil</span></li>
+          <li><b>Soy brasileño / brasileña</b><span lang="pt-BR">sou brasileiro / brasileira</span></li>
+          <li><b>Trabajo en un banco</b><span lang="pt-BR">trabalho em um banco</span></li>
+          <li><b>Mucho gusto</b><span lang="pt-BR">muito prazer</span></li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="side right">
+      <section class="branch" data-color="blue" style="--c: var(--blue)">
+        <h2><span lang="es">Preguntar al otro</span><span class="pt">perguntar ao outro</span></h2>
+        <ul lang="es">
+          <li><b>¿Cómo te llamas?</b><span lang="pt-BR">como você se chama?</span></li>
+          <li><b>¿De dónde eres?</b><span lang="pt-BR">de onde você é?</span></li>
+          <li><b>¿A qué te dedicas?</b><span lang="pt-BR">com o que você trabalha?</span></li>
+          <li><b>¿Y usted?</b><span lang="pt-BR">e o senhor / a senhora?</span></li>
+        </ul>
+      </section>
+
+      <section class="branch" data-color="violet" style="--c: var(--violet)">
+        <h2><span lang="es">¿Tú o usted?</span><span class="pt">informal ou formal</span></h2>
+        <ul lang="es">
+          <li><b>Tú</b><span lang="pt-BR">amigos, família e colegas</span></li>
+          <li><b>Usted</b><span lang="pt-BR">clientes, pessoas mais velhas, primeiro contato</span></li>
+          <li><b>Ustedes</b><span lang="pt-BR">vocês, em qualquer situação na América Latina</span></li>
+          <li><b>Vos</b><span lang="pt-BR">no lugar de tú, principalmente na Argentina e no Uruguai</span></li>
+        </ul>
+      </section>
+
+      <section class="branch" data-color="leaf" style="--c: var(--leaf)">
+        <h2><span lang="es">Despedirse</span><span class="pt">se despedir</span></h2>
+        <ul lang="es">
+          <li><b>Adiós</b><span lang="pt-BR">tchau, adeus</span></li>
+          <li><b>Hasta luego</b><span lang="pt-BR">até mais</span></li>
+          <li><b>Hasta mañana</b><span lang="pt-BR">até amanhã</span></li>
+          <li><b>Nos vemos</b><span lang="pt-BR">a gente se vê</span></li>
+          <li><b>Chao</b><span lang="pt-BR">tchau, muito comum na América Latina</span></li>
+        </ul>
+      </section>
+    </div>
+  </div>
+
+  <div class="extras">
+    <section class="box">
+      <h2>Cuidado: armadilhas para brasileiros</h2>
+      <ul class="traps">
+        <li><b lang="es">Apellido</b> é sobrenome. Apelido, em espanhol, é <b lang="es">apodo</b>.</li>
+        <li>O <b>h</b> de <b lang="es">¡Hola!</b> não tem som: fala-se "ola".</li>
+        <li>Diga <b lang="es">me llamo</b>, e não "me chamo".</li>
+        <li><b lang="es">Encantado</b> se quem fala é homem, <b lang="es">encantada</b> se é mulher.</li>
+      </ul>
+    </section>
+
+    <section class="box">
+      <h2 lang="es">En la práctica</h2>
+      <div class="dialog" lang="es">
+        <p class="line a"><span class="who">Ana</span>¡Hola! Me llamo Ana. ¿Cómo te llamas?<span class="tr" lang="pt-BR">Oi! Meu nome é Ana. Como você se chama?</span></p>
+        <p class="line b"><span class="who">Tide</span>Mucho gusto, Ana. Soy Tide, soy de Brasil.<span class="tr" lang="pt-BR">Muito prazer, Ana. Sou o Tide, sou do Brasil.</span></p>
+        <p class="line a"><span class="who">Ana</span>¡Encantada! ¿A qué te dedicas?<span class="tr" lang="pt-BR">Prazer! Com o que você trabalha?</span></p>
+        <p class="line b"><span class="who">Tide</span>Trabajo en un banco. ¿Y tú?<span class="tr" lang="pt-BR">Trabalho em um banco. E você?</span></p>
+      </div>
+    </section>
+  </div>
+
+  <footer>Edição 01 da newsletter de espanhol para iniciantes: <span lang="es">Saludos y presentaciones</span>.</footer>
+</main>
+
+<script>
+(function () {
+  var NS = "http://www.w3.org/2000/svg";
+  var map = document.getElementById("map");
+  var svg = document.getElementById("links");
+  var hub = document.getElementById("hub");
+  var mq = window.matchMedia("(min-width: 900px)");
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var animated = false;
+
+  function draw() {
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    if (!mq.matches) return;
+    var m = map.getBoundingClientRect();
+    svg.setAttribute("viewBox", "0 0 " + m.width + " " + m.height);
+    svg.setAttribute("width", m.width);
+    svg.setAttribute("height", m.height);
+    var h = hub.getBoundingClientRect();
+    var paths = [];
+    document.querySelectorAll(".branch").forEach(function (b) {
+      var left = b.parentElement.classList.contains("left");
+      var r = b.getBoundingClientRect();
+      var head = b.querySelector("h2").getBoundingClientRect();
+      var x1 = (left ? h.left : h.right) - m.left;
+      var y1 = h.top - m.top + h.height / 2;
+      var x2 = (left ? r.right : r.left) - m.left;
+      var y2 = head.top - m.top + head.height / 2;
+      var mx = (x1 + x2) / 2;
+      var color = "var(--" + b.dataset.color + ")";
+      var p = document.createElementNS(NS, "path");
+      p.setAttribute("d", "M" + x1 + " " + y1 + " C" + mx + " " + y1 + ", " + mx + " " + y2 + ", " + x2 + " " + y2);
+      p.style.stroke = color;
+      svg.appendChild(p);
+      var dot = document.createElementNS(NS, "circle");
+      dot.setAttribute("cx", x2);
+      dot.setAttribute("cy", y2);
+      dot.setAttribute("r", 5);
+      dot.style.fill = color;
+      svg.appendChild(dot);
+      paths.push(p);
+    });
+    if (!animated && !reduce && paths.length) {
+      animated = true;
+      paths.forEach(function (p) {
+        var len = p.getTotalLength();
+        p.style.strokeDasharray = len;
+        p.style.strokeDashoffset = len;
+      });
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          svg.classList.add("drawn");
+          paths.forEach(function (p) { p.style.strokeDashoffset = 0; });
+        });
+      });
+    }
+  }
+
+  draw();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(draw);
+  if (window.ResizeObserver) new ResizeObserver(draw).observe(map);
+  else window.addEventListener("resize", draw);
+  if (mq.addEventListener) mq.addEventListener("change", draw);
+})();
+</script>
+</body>
+</html>
