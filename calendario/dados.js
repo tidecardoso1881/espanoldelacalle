@@ -1,11 +1,11 @@
 // Calendário Español de la Calle · dados. Só o Cowork grava este arquivo (rotina diária, ver 11_Comunicacao\ROTINA_CALENDARIO.md).
 window.CALENDARIO = {
  "versao": 1,
- "atualizado": "2026-11-05T03:00-03:00",
+ "atualizado": "2026-11-05T18:20-03:00",
  "conferencia": {
-  "quando": "2026-11-05T00:53-03:00",
+  "quando": "2026-11-05T18:15-03:00",
   "quem": "Cowork",
-  "como": "lista de artigos agendados do LinkedIn (/article/manage/scheduled) logo depois de agendar a Sem05: 35 da newsletter, Sem01 a Sem05, todos com data e hora certas; nada publicado ainda"
+  "como": "lista de artigos agendados do LinkedIn (/article/manage/scheduled) logo depois de agendar a Sem06: 42 da newsletter, Sem01 a Sem06, todos com data e hora certas; nada publicado ainda"
  },
  "pausas": [
   {
@@ -480,7 +480,7 @@ window.CALENDARIO = {
    "temporada": "T3 Minha rotina",
    "nivel": "Nível 1 (A1)",
    "tema": "Tempo livre: jugar al fútbol, tocar la guitarra",
-   "status": "producao",
+   "status": "agendada",
    "linkedin": null
   },
   {
@@ -493,7 +493,7 @@ window.CALENDARIO = {
    "temporada": "T3 Minha rotina",
    "nivel": "Nível 1 (A1)",
    "tema": "O tempo e as estações do ano",
-   "status": "producao",
+   "status": "agendada",
    "linkedin": null
   },
   {
@@ -506,7 +506,7 @@ window.CALENDARIO = {
    "temporada": "T3 Minha rotina",
    "nivel": "Nível 1 (A1)",
    "tema": "Roupas: llevar e ponerse",
-   "status": "producao",
+   "status": "agendada",
    "linkedin": null
   },
   {
@@ -519,7 +519,7 @@ window.CALENDARIO = {
    "temporada": "T3 Minha rotina",
    "nivel": "Nível 1 (A1)",
    "tema": "A casa e os cômodos",
-   "status": "producao",
+   "status": "agendada",
    "linkedin": null
   },
   {
@@ -532,7 +532,7 @@ window.CALENDARIO = {
    "temporada": "T3 Minha rotina",
    "nivel": "Nível 1 (A1)",
    "tema": "Corpo e saúde: me duele, na farmácia",
-   "status": "producao",
+   "status": "agendada",
    "linkedin": null
   },
   {
@@ -545,7 +545,7 @@ window.CALENDARIO = {
    "temporada": "T3 Minha rotina",
    "nivel": "Nível 1 (A1)",
    "tema": "Revisão da temporada",
-   "status": "producao",
+   "status": "agendada",
    "linkedin": null
   },
   {
@@ -558,7 +558,7 @@ window.CALENDARIO = {
    "temporada": "T3 Minha rotina",
    "nivel": "Nível 1 (A1)",
    "tema": "Gabarito da temporada",
-   "status": "producao",
+   "status": "agendada",
    "linkedin": null
   },
   {
