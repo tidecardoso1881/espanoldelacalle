@@ -1,11 +1,11 @@
 // Calendário Español de la Calle · dados. Só o Cowork grava este arquivo (rotina diária, ver 11_Comunicacao\ROTINA_CALENDARIO.md).
 window.CALENDARIO = {
  "versao": 1,
- "atualizado": "2026-11-04T22:17-03:00",
+ "atualizado": "2026-11-05T03:00-03:00",
  "conferencia": {
-  "quando": "2026-11-04T22:10-03:00",
+  "quando": "2026-11-05T00:53-03:00",
   "quem": "Cowork",
-  "como": "lista \"Agendamento realizado\" do LinkedIn (56 itens; 28 da newsletter, Sem01 a Sem04, todos com data e hora certas); nada publicado ainda"
+  "como": "lista de artigos agendados do LinkedIn (/article/manage/scheduled) logo depois de agendar a Sem05: 35 da newsletter, Sem01 a Sem05, todos com data e hora certas; nada publicado ainda"
  },
  "pausas": [
   {
@@ -389,7 +389,7 @@ window.CALENDARIO = {
    "temporada": "T3 Minha rotina",
    "nivel": "Nível 1 (A1)",
    "tema": "Presente dos verbos regulares (-ar, -er, -ir)",
-   "status": "producao",
+   "status": "agendada",
    "linkedin": null
   },
   {
@@ -402,7 +402,7 @@ window.CALENDARIO = {
    "temporada": "T3 Minha rotina",
    "nivel": "Nível 1 (A1)",
    "tema": "Verbos reflexivos: me levanto, me ducho",
-   "status": "producao",
+   "status": "agendada",
    "linkedin": null
   },
   {
@@ -415,7 +415,7 @@ window.CALENDARIO = {
    "temporada": "T3 Minha rotina",
    "nivel": "Nível 1 (A1)",
    "tema": "Irregulares do dia a dia: tener, ir, hacer, poder, querer",
-   "status": "producao",
+   "status": "agendada",
    "linkedin": null
   },
   {
@@ -428,7 +428,7 @@ window.CALENDARIO = {
    "temporada": "T3 Minha rotina",
    "nivel": "Nível 1 (A1)",
    "tema": "Frequência: siempre, a veces, nunca",
-   "status": "producao",
+   "status": "agendada",
    "linkedin": null
   },
   {
@@ -441,7 +441,7 @@ window.CALENDARIO = {
    "temporada": "T3 Minha rotina",
    "nivel": "Nível 1 (A1)",
    "tema": "Gustar: me gusta, me gustan",
-   "status": "producao",
+   "status": "agendada",
    "linkedin": null
   },
   {
@@ -454,7 +454,7 @@ window.CALENDARIO = {
    "temporada": "T3 Minha rotina",
    "nivel": "Nível 1 (A1)",
    "tema": "Revisão da semana",
-   "status": "producao",
+   "status": "agendada",
    "linkedin": null
   },
   {
@@ -467,7 +467,7 @@ window.CALENDARIO = {
    "temporada": "T3 Minha rotina",
    "nivel": "Nível 1 (A1)",
    "tema": "Gabarito da semana",
-   "status": "producao",
+   "status": "agendada",
    "linkedin": null
   },
   {
@@ -480,7 +480,7 @@ window.CALENDARIO = {
    "temporada": "T3 Minha rotina",
    "nivel": "Nível 1 (A1)",
    "tema": "Tempo livre: jugar al fútbol, tocar la guitarra",
-   "status": "nao_iniciada",
+   "status": "producao",
    "linkedin": null
   },
   {
@@ -493,7 +493,7 @@ window.CALENDARIO = {
    "temporada": "T3 Minha rotina",
    "nivel": "Nível 1 (A1)",
    "tema": "O tempo e as estações do ano",
-   "status": "nao_iniciada",
+   "status": "producao",
    "linkedin": null
   },
   {
@@ -506,7 +506,7 @@ window.CALENDARIO = {
    "temporada": "T3 Minha rotina",
    "nivel": "Nível 1 (A1)",
    "tema": "Roupas: llevar e ponerse",
-   "status": "nao_iniciada",
+   "status": "producao",
    "linkedin": null
   },
   {
@@ -519,7 +519,7 @@ window.CALENDARIO = {
    "temporada": "T3 Minha rotina",
    "nivel": "Nível 1 (A1)",
    "tema": "A casa e os cômodos",
-   "status": "nao_iniciada",
+   "status": "producao",
    "linkedin": null
   },
   {
@@ -532,7 +532,7 @@ window.CALENDARIO = {
    "temporada": "T3 Minha rotina",
    "nivel": "Nível 1 (A1)",
    "tema": "Corpo e saúde: me duele, na farmácia",
-   "status": "nao_iniciada",
+   "status": "producao",
    "linkedin": null
   },
   {
@@ -545,7 +545,7 @@ window.CALENDARIO = {
    "temporada": "T3 Minha rotina",
    "nivel": "Nível 1 (A1)",
    "tema": "Revisão da temporada",
-   "status": "nao_iniciada",
+   "status": "producao",
    "linkedin": null
   },
   {
@@ -558,7 +558,7 @@ window.CALENDARIO = {
    "temporada": "T3 Minha rotina",
    "nivel": "Nível 1 (A1)",
    "tema": "Gabarito da temporada",
-   "status": "nao_iniciada",
+   "status": "producao",
    "linkedin": null
   },
   {
