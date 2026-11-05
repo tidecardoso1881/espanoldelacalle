@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Calendário · Español de la Calle</title>
+<style>
+:root{
+  --bg:#f6f5f1; --card:#ffffff; --ink:#1d1f23; --muted:#6b6f76; --line:#e2e0d8;
+  --amarelo:#f5c400; --amarelo-bg:#fff4c2; --amarelo-ink:#5a4600;
+  --verde:#1f7a4d; --verde-bg:#dff1e7;
+  --prod-bg:#eceae4; --prod-borda:#c9a400;
+  --cinza-bg:#f0efeb; --cinza-ink:#a3a6ab;
+  --vermelho:#b42318; --vermelho-bg:#fde8e6;
+  --hoje:#2457c5;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15171a; --card:#1e2125; --ink:#eceef1; --muted:#9aa0a8; --line:#30343a;
+    --amarelo-bg:#3b3200; --amarelo-ink:#ffe27a;
+    --verde:#5fd39b; --verde-bg:#16352a;
+    --prod-bg:#2a2c30; --prod-borda:#c9a400;
+    --cinza-bg:#1b1d20; --cinza-ink:#5d6168;
+    --vermelho:#ff8a80; --vermelho-bg:#3d1c1a; --hoje:#7aa2ff;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15171a; --card:#1e2125; --ink:#eceef1; --muted:#9aa0a8; --line:#30343a;
+  --amarelo-bg:#3b3200; --amarelo-ink:#ffe27a;
+  --verde:#5fd39b; --verde-bg:#16352a;
+  --prod-bg:#2a2c30; --prod-borda:#c9a400;
+  --cinza-bg:#1b1d20; --cinza-ink:#5d6168;
+  --vermelho:#ff8a80; --vermelho-bg:#3d1c1a; --hoje:#7aa2ff;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:1180px;margin:0 auto;padding:20px 16px 40px}
+.faixa{background:var(--amarelo);color:#1d1f23;border-radius:10px;padding:14px 18px;display:flex;flex-wrap:wrap;gap:6px 18px;align-items:baseline;justify-content:space-between}
+.faixa h1{margin:0;font-size:20px;letter-spacing:.02em}
+.faixa .conf{font-size:13px}
+.aviso{margin-top:10px;padding:8px 12px;border-radius:8px;font-size:13px;background:var(--vermelho-bg);color:var(--vermelho);display:none}
+.kpis{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin:14px 0}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.kpi b{display:block;font-size:22px}
+.kpi span{font-size:12px;color:var(--muted)}
+.kpi.folga.ok{border-color:var(--verde)} .kpi.folga.ok b{color:var(--verde)}
+.kpi.folga.ruim{border-color:var(--vermelho);background:var(--vermelho-bg)} .kpi.folga.ruim b{color:var(--vermelho)}
+.nav{display:flex;align-items:center;gap:8px;margin:6px 0 10px}
+.nav h2{margin:0 auto 0 4px;font-size:18px}
+.nav button{background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:6px 12px;font:inherit;cursor:pointer}
+.nav button:disabled{opacity:.35;cursor:default}
+.grade{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
+.dow{font-size:12px;color:var(--muted);text-align:center;padding:2px 0;text-transform:uppercase}
+.dia{background:var(--card);border:1px solid var(--line);border-radius:8px;min-height:104px;padding:6px;display:flex;flex-direction:column;gap:4px}
+.dia.fora{visibility:hidden}
+.dia.hoje{outline:2px solid var(--hoje);outline-offset:-1px}
+.dia .num{font-size:12px;color:var(--muted)}
+.dia.pausa{background:repeating-linear-gradient(45deg,var(--cinza-bg) 0 6px,var(--card) 6px 12px)}
+.dia.pausa .rot{font-size:11px;color:var(--muted)}
+.chip{display:block;border-radius:6px;padding:5px 6px;text-decoration:none;color:inherit;flex:1}
+.chip .top{display:flex;justify-content:space-between;gap:4px;font-size:12px;font-weight:700}
+.chip .tema{font-size:12px;line-height:1.25;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;margin-top:2px}
+.chip .st{font-size:10.5px;text-transform:uppercase;letter-spacing:.03em;margin-top:3px;opacity:.85}
+a.chip:hover{filter:brightness(.96)}
+.s-publicada{background:var(--verde-bg);color:var(--ink);border-left:4px solid var(--verde)}
+.s-agendada{background:var(--amarelo-bg);color:var(--amarelo-ink);border-left:4px solid var(--amarelo)}
+.s-producao{background:var(--prod-bg);color:var(--muted);border:1px dashed var(--prod-borda)}
+.s-nao_iniciada{background:var(--cinza-bg);color:var(--cinza-ink)}
+.s-atrasada{background:var(--vermelho-bg);color:var(--vermelho);border-left:4px solid var(--vermelho)}
+.legenda{display:flex;flex-wrap:wrap;gap:8px 16px;margin:14px 0 0;font-size:13px;color:var(--muted)}
+.legenda i{display:inline-block;width:14px;height:14px;border-radius:3px;vertical-align:-2px;margin-right:6px}
+.rodape{margin-top:18px;font-size:12px;color:var(--muted)}
+@media (max-width:720px){
+  .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .kpi.folga{grid-column:1/-1}
+  .grade{grid-template-columns:1fr}
+  .dow,.dia.fora,.dia.vazio{display:none}
+  .dia{min-height:0;flex-direction:row;align-items:stretch}
+  .dia .num{width:58px;flex:none;padding-top:4px}
+  .chip .tema{-webkit-line-clamp:2}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="faixa">
+    <h1>CALENDÁRIO · ESPAÑOL DE LA CALLE</h1>
+    <div class="conf" id="conf"></div>
+  </div>
+  <div class="aviso" id="aviso"></div>
+  <div class="kpis" id="kpis"></div>
+  <div class="nav">
+    <button id="prev" aria-label="Mês anterior">‹</button>
+    <h2 id="mes"></h2>
+    <button id="hoje">Hoje</button>
+    <button id="next" aria-label="Próximo mês">›</button>
+  </div>
+  <div class="grade" id="grade"></div>
+  <div class="legenda">
+    <span><i class="s-publicada"></i>Publicada (conferida no LinkedIn)</span>
+    <span><i class="s-agendada"></i>Agendada no LinkedIn</span>
+    <span><i class="s-atrasada"></i>Data passou, não conferida</span>
+    <span><i class="s-producao"></i>Em produção</span>
+    <span><i class="s-nao_iniciada"></i>Não iniciada</span>
+  </div>
+  <div class="rodape" id="rodape"></div>
+</div>
+<script src="dados.js"></script>
+<script>
+(function(){
+  var D = window.CALENDARIO;
+  var grade = document.getElementById('grade');
+  if(!D){ grade.textContent = 'Não consegui ler o arquivo dados.js.'; return; }
+  var NOMES = {publicada:'Publicada', agendada:'Agendada', atrasada:'Não conferida', producao:'Em produção', nao_iniciada:'Não iniciada'};
+  var TIPO = {licao:'', revisao:'Revisão · ', gabarito:'Gabarito · '};
+  var MESES = ['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
+  var agora = new Date();
+  function dia(iso){ var p = iso.split('-'); return new Date(+p[0], +p[1]-1, +p[2]); }
+  function chave(d){ return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
+  function fmt(iso){ var d = new Date(iso); return String(d.getDate()).padStart(2,'0')+'/'+String(d.getMonth()+1).padStart(2,'0')+' '+String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0'); }
+  function ddmm(d){ return String(d.getDate()).padStart(2,'0')+'/'+String(d.getMonth()+1).padStart(2,'0'); }
+
+  // Estado efetivo: "agendada" com data e hora já passadas vira "atrasada" até a conferência marcar "publicada".
+  var porDia = {};
+  D.itens.forEach(function(it){
+    var quando = dia(it.data); quando.setHours(parseInt(it.hora,10));
+    it._quando = quando;
+    it._st = (it.status === 'agendada' && quando < agora) ? 'atrasada' : it.status;
+    porDia[it.data] = it;
+  });
+
+  // Conferência no LinkedIn
+  var conf = new Date(D.conferencia.quando);
+  document.getElementById('conf').textContent = 'Última conferência no LinkedIn: ' + fmt(D.conferencia.quando) + ' · ' + D.conferencia.quem;
+  var horas = (agora - conf) / 36e5;
+  if(horas > 26){
+    var av = document.getElementById('aviso');
+    av.style.display = 'block';
+    av.textContent = 'A conferência no LinkedIn tem mais de um dia (' + Math.floor(horas/24) + ' dia(s)). Os status podem estar desatualizados.';
+  }
+
+  // Indicadores
+  var cont = {publicada:0, agendada:0, atrasada:0, producao:0, nao_iniciada:0};
+  D.itens.forEach(function(it){ cont[it._st]++; });
+  // Folga: semanas seguidas, a partir da próxima que ainda não começou, com tudo agendado ou publicado
+  var semanas = {};
+  D.itens.forEach(function(it){ (semanas[it.sem] = semanas[it.sem] || []).push(it); });
+  var folga = 0, ate = null;
+  Object.keys(semanas).map(Number).sort(function(a,b){return a-b;}).filter(function(s){ return dia(semanas[s][0].data) > agora; })
+    .some(function(s){
+      var ok = semanas[s].every(function(it){ return it.status === 'agendada' || it.status === 'publicada'; });
+      if(ok){ folga++; ate = dia(semanas[s][semanas[s].length-1].data); }
+      return !ok;
+    });
+  var k = document.getElementById('kpis');
+  function kpi(n, txt, cls){ var e = document.createElement('div'); e.className = 'kpi ' + (cls||''); e.innerHTML = '<b>'+n+'</b><span>'+txt+'</span>'; k.appendChild(e); }
+  kpi(folga + (folga === 1 ? ' semana' : ' semanas'), 'Folga agendada à frente' + (ate ? ' (até ' + ddmm(ate) + ')' : '') + ' · mínimo 3', 'folga ' + (folga >= 3 ? 'ok' : 'ruim'));
+  kpi(cont.publicada, 'Publicadas');
+  kpi(cont.agendada + cont.atrasada, 'Agendadas' + (cont.atrasada ? ' (' + cont.atrasada + ' não conferidas)' : ''));
+  kpi(cont.producao, 'Em produção');
+  kpi(cont.nao_iniciada, 'Não iniciadas');
+
+  // Navegação mês a mês
+  var primeiro = dia(D.itens[0].data), ultimo = dia(D.itens[D.itens.length-1].data);
+  var minM = primeiro.getFullYear()*12 + primeiro.getMonth(), maxM = ultimo.getFullYear()*12 + ultimo.getMonth();
+  var hojeM = Math.min(Math.max(agora.getFullYear()*12 + agora.getMonth(), minM), maxM);
+  var atual = hojeM;
+  try { var salvo = sessionStorage.getItem('cal_mes'); if(salvo && +salvo >= minM && +salvo <= maxM) atual = +salvo; } catch(e){}
+
+  function emPausa(iso){ return (D.pausas||[]).some(function(p){ return iso >= p.inicio && iso <= p.fim; }); }
+  function nomePausa(iso){ var p = (D.pausas||[]).filter(function(p){ return iso >= p.inicio && iso <= p.fim; })[0]; return p ? p.nome : ''; }
+
+  function desenha(){
+    try { sessionStorage.setItem('cal_mes', atual); } catch(e){}
+    var ano = Math.floor(atual/12), mes = atual % 12;
+    document.getElementById('mes').textContent = MESES[mes].charAt(0).toUpperCase() + MESES[mes].slice(1) + ' de ' + ano;
+    document.getElementById('prev').disabled = atual <= minM;
+    document.getElementById('next').disabled = atual >= maxM;
+    grade.innerHTML = '';
+    ['seg','ter','qua','qui','sex','sáb','dom'].forEach(function(n){ var e = document.createElement('div'); e.className = 'dow'; e.textContent = n; grade.appendChild(e); });
+    var d1 = new Date(ano, mes, 1), off = (d1.getDay() + 6) % 7;
+    for(var i = 0; i < off; i++){ var f = document.createElement('div'); f.className = 'dia fora'; grade.appendChild(f); }
+    var dias = new Date(ano, mes+1, 0).getDate(), hojeK = chave(agora);
+    for(var n = 1; n <= dias; n++){
+      var d = new Date(ano, mes, n), iso = chave(d), it = porDia[iso];
+      var c = document.createElement('div');
+      c.className = 'dia' + (iso === hojeK ? ' hoje' : '') + (emPausa(iso) ? ' pausa' : '') + (!it && !emPausa(iso) ? ' vazio' : '');
+      var num = document.createElement('div'); num.className = 'num';
+      num.textContent = n + (window.innerWidth <= 720 ? ' ' + ['dom','seg','ter','qua','qui','sex','sáb'][d.getDay()] : '');
+      c.appendChild(num);
+      if(it){
+        var temPag = (it.status === 'agendada' || it.status === 'publicada');
+        var ch = document.createElement(temPag ? 'a' : 'div');
+        ch.className = 'chip s-' + it._st;
+        if(temPag) ch.href = it.id + '.html';
+        ch.title = (it.ed ? 'Ed. ' + String(it.ed).padStart(2,'0') : 'Domingo') + ' · ' + it.tema + ' · ' + it.hora + ' · ' + NOMES[it._st];
+        var rot = it.ed ? 'Ed. ' + String(it.ed).padStart(2,'0') : 'Dom';
+        ch.innerHTML = '<div class="top"><span>' + rot + '</span><span>' + it.hora + '</span></div>' +
+          '<div class="tema">' + (/^(Revisão|Gabarito)/.test(it.tema) ? '' : TIPO[it.tipo]) + it.tema.replace(/</g,'&lt;') + '</div>' +
+          '<div class="st">' + NOMES[it._st] + (temPag ? ' ›' : '') + '</div>';
+        c.appendChild(ch);
+      } else if(emPausa(iso)){
+        var r = document.createElement('div'); r.className = 'rot'; r.textContent = nomePausa(iso); c.appendChild(r);
+      }
+      grade.appendChild(c);
+    }
+  }
+  document.getElementById('prev').onclick = function(){ if(atual > minM){ atual--; desenha(); } };
+  document.getElementById('next').onclick = function(){ if(atual < maxM){ atual++; desenha(); } };
+  document.getElementById('hoje').onclick = function(){ atual = hojeM; desenha(); };
+  window.addEventListener('resize', function(){ clearTimeout(window._rz); window._rz = setTimeout(desenha, 150); });
+  document.getElementById('rodape').textContent = 'Dados atualizados em ' + fmt(D.atualizado) + '. Status gravado pelo Cowork depois de conferir no LinkedIn. Última conferência: ' + D.conferencia.como + '. 144 edições e 24 domingos, de 09/11/2026 a 09/05/2027.';
+  desenha();
+})();
+</script>
+</body>
+</html>
