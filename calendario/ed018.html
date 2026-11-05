@@ -64,7 +64,7 @@ dt{color:var(--muted);font-size:14px} dd{margin:0}
   if(!D){ b.textContent = 'Status indisponível'; return; }
   var it = D.itens.filter(function(x){ return x.id === id; })[0];
   if(!it) return;
-  var p = it.data.split('-'), q = new Date(+p[0], +p[1]-1, +p[2], parseInt(it.hora,10));
+  var p = it.data.split('-'), q = new Date(Date.UTC(+p[0], +p[1]-1, +p[2], parseInt(it.hora,10)+3)); /* hora do calendario = America/Sao_Paulo (UTC-3) */
   var st = (it.status === 'agendada' && q < new Date()) ? 'atrasada' : it.status;
   b.textContent = NOMES[st]; b.className = 'badge s-' + st;
   if(it.linkedin){
@@ -72,8 +72,8 @@ dt{color:var(--muted);font-size:14px} dd{margin:0}
     a.innerHTML = 'Ler no LinkedIn<small>Artigo publicado na newsletter</small>';
     var s = document.getElementById('linkedin'); s.parentNode.replaceChild(a, s);
   }
-  var c = new Date(D.conferencia.quando);
-  document.getElementById('rodape').textContent = 'Status conferido no LinkedIn em ' + String(c.getDate()).padStart(2,'0') + '/' + String(c.getMonth()+1).padStart(2,'0') + ' ' + String(c.getHours()).padStart(2,'0') + ':' + String(c.getMinutes()).padStart(2,'0') + ' · Español de la Calle · Ilustrações criadas com IA';
+  var o = {}; new Intl.DateTimeFormat('pt-BR', {timeZone: 'America/Sao_Paulo', day:'2-digit', month:'2-digit', hour:'2-digit', minute:'2-digit', hourCycle:'h23'}).formatToParts(new Date(D.conferencia.quando)).forEach(function(x){ o[x.type] = x.value; });
+  document.getElementById('rodape').textContent = 'Status conferido no LinkedIn em ' + o.day + '/' + o.month + ' ' + o.hour + ':' + o.minute + ' · Español de la Calle · Ilustrações criadas com IA';
 })();
 </script>
 </body>

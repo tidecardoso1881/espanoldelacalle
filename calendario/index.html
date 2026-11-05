@@ -118,13 +118,17 @@ a.chip:hover{filter:brightness(.96)}
   var agora = new Date();
   function dia(iso){ var p = iso.split('-'); return new Date(+p[0], +p[1]-1, +p[2]); }
   function chave(d){ return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
-  function fmt(iso){ var d = new Date(iso); return String(d.getDate()).padStart(2,'0')+'/'+String(d.getMonth()+1).padStart(2,'0')+' '+String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0'); }
+  // Fuso explícito: todas as horas do calendário são de America/Sao_Paulo (UTC-3, sem horário de verão), em qualquer navegador.
+  var TZ = 'America/Sao_Paulo';
+  function sp(d){ var o = {}; new Intl.DateTimeFormat('pt-BR', {timeZone: TZ, year:'numeric', month:'2-digit', day:'2-digit', hour:'2-digit', minute:'2-digit', hourCycle:'h23'}).formatToParts(d).forEach(function(x){ o[x.type] = x.value; }); return o; }
+  function fmt(iso){ var o = sp(new Date(iso)); return o.day+'/'+o.month+' '+o.hour+':'+o.minute; }
+  function prazo(iso, hora){ var p = iso.split('-'); return new Date(Date.UTC(+p[0], +p[1]-1, +p[2], parseInt(hora,10)+3)); }
   function ddmm(d){ return String(d.getDate()).padStart(2,'0')+'/'+String(d.getMonth()+1).padStart(2,'0'); }
 
   // Estado efetivo: "agendada" com data e hora já passadas vira "atrasada" até a conferência marcar "publicada".
   var porDia = {};
   D.itens.forEach(function(it){
-    var quando = dia(it.data); quando.setHours(parseInt(it.hora,10));
+    var quando = prazo(it.data, it.hora);
     it._quando = quando;
     it._st = (it.status === 'agendada' && quando < agora) ? 'atrasada' : it.status;
     porDia[it.data] = it;
@@ -147,7 +151,7 @@ a.chip:hover{filter:brightness(.96)}
   var semanas = {};
   D.itens.forEach(function(it){ (semanas[it.sem] = semanas[it.sem] || []).push(it); });
   var folga = 0, ate = null;
-  Object.keys(semanas).map(Number).sort(function(a,b){return a-b;}).filter(function(s){ return dia(semanas[s][0].data) > agora; })
+  Object.keys(semanas).map(Number).sort(function(a,b){return a-b;}).filter(function(s){ return prazo(semanas[s][0].data, 0) > agora; })
     .some(function(s){
       var ok = semanas[s].every(function(it){ return it.status === 'agendada' || it.status === 'publicada'; });
       if(ok){ folga++; ate = dia(semanas[s][semanas[s].length-1].data); }
@@ -164,7 +168,8 @@ a.chip:hover{filter:brightness(.96)}
   // Navegação mês a mês
   var primeiro = dia(D.itens[0].data), ultimo = dia(D.itens[D.itens.length-1].data);
   var minM = primeiro.getFullYear()*12 + primeiro.getMonth(), maxM = ultimo.getFullYear()*12 + ultimo.getMonth();
-  var hojeM = Math.min(Math.max(agora.getFullYear()*12 + agora.getMonth(), minM), maxM);
+  var spAgora = sp(agora);
+  var hojeM = Math.min(Math.max(+spAgora.year*12 + (+spAgora.month - 1), minM), maxM);
   var atual = hojeM;
   try { var salvo = sessionStorage.getItem('cal_mes'); if(salvo && +salvo >= minM && +salvo <= maxM) atual = +salvo; } catch(e){}
 
@@ -181,7 +186,7 @@ a.chip:hover{filter:brightness(.96)}
     ['seg','ter','qua','qui','sex','sáb','dom'].forEach(function(n){ var e = document.createElement('div'); e.className = 'dow'; e.textContent = n; grade.appendChild(e); });
     var d1 = new Date(ano, mes, 1), off = (d1.getDay() + 6) % 7;
     for(var i = 0; i < off; i++){ var f = document.createElement('div'); f.className = 'dia fora'; grade.appendChild(f); }
-    var dias = new Date(ano, mes+1, 0).getDate(), hojeK = chave(agora);
+    var dias = new Date(ano, mes+1, 0).getDate(), hojeK = spAgora.year+'-'+spAgora.month+'-'+spAgora.day;
     for(var n = 1; n <= dias; n++){
       var d = new Date(ano, mes, n), iso = chave(d), it = porDia[iso];
       var c = document.createElement('div');
