@@ -68,6 +68,7 @@ a.chip:hover{filter:brightness(.96)}
 .s-producao{background:var(--prod-bg);color:var(--muted);border:1px dashed var(--prod-borda)}
 .s-nao_iniciada{background:var(--cinza-bg);color:var(--cinza-ink)}
 .s-atrasada{background:var(--vermelho-bg);color:var(--vermelho);border-left:4px solid var(--vermelho)}
+.faixa-pausa{display:none;margin:0 0 10px;padding:10px 14px;border-radius:8px;background:var(--cinza-bg);border:1px dashed var(--prod-borda);color:var(--ink);font-size:14px;font-weight:600}
 .legenda{display:flex;flex-wrap:wrap;gap:8px 16px;margin:14px 0 0;font-size:13px;color:var(--muted)}
 .legenda i{display:inline-block;width:14px;height:14px;border-radius:3px;vertical-align:-2px;margin-right:6px}
 .rodape{margin-top:18px;font-size:12px;color:var(--muted)}
@@ -96,6 +97,7 @@ a.chip:hover{filter:brightness(.96)}
     <button id="hoje">Hoje</button>
     <button id="next" aria-label="Próximo mês">›</button>
   </div>
+  <div class="faixa-pausa" id="faixaPausa"></div>
   <div class="grade" id="grade"></div>
   <div class="legenda">
     <span><i class="s-publicada"></i>Publicada (conferida no LinkedIn)</span>
@@ -182,6 +184,15 @@ a.chip:hover{filter:brightness(.96)}
     document.getElementById('mes').textContent = MESES[mes].charAt(0).toUpperCase() + MESES[mes].slice(1) + ' de ' + ano;
     document.getElementById('prev').disabled = atual <= minM;
     document.getElementById('next').disabled = atual >= maxM;
+    // Faixa de pausa: aparece nos meses que têm dias de pausa («nome · volta em dd/mm/aaaa»)
+    var fp = document.getElementById('faixaPausa'), avisos = [], cur = ano + '-' + String(mes + 1).padStart(2, '0');
+    (D.pausas || []).forEach(function(p){
+      if(cur >= p.inicio.slice(0, 7) && cur <= p.fim.slice(0, 7)){
+        var v = dia(p.fim); v.setDate(v.getDate() + 1);
+        avisos.push(p.nome + ' · volta em ' + String(v.getDate()).padStart(2, '0') + '/' + String(v.getMonth() + 1).padStart(2, '0') + '/' + v.getFullYear());
+      }
+    });
+    fp.style.display = avisos.length ? 'block' : 'none'; fp.textContent = avisos.join(' · ');
     grade.innerHTML = '';
     ['seg','ter','qua','qui','sex','sáb','dom'].forEach(function(n){ var e = document.createElement('div'); e.className = 'dow'; e.textContent = n; grade.appendChild(e); });
     var d1 = new Date(ano, mes, 1), off = (d1.getDay() + 6) % 7;
