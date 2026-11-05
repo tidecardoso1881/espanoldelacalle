@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Ed. 15 · Español de la Calle</title>
+<style>
+:root{--bg:#f6f5f1;--card:#fff;--ink:#1d1f23;--muted:#6b6f76;--line:#e2e0d8;--amarelo:#f5c400;--amarelo-bg:#fff4c2;--amarelo-ink:#5a4600;--verde:#1f7a4d;--verde-bg:#dff1e7;--prod-bg:#eceae4;--cinza-bg:#f0efeb;--cinza-ink:#8a8d92;--vermelho:#b42318;--vermelho-bg:#fde8e6;--link:#2457c5}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#15171a;--card:#1e2125;--ink:#eceef1;--muted:#9aa0a8;--line:#30343a;--amarelo-bg:#3b3200;--amarelo-ink:#ffe27a;--verde:#5fd39b;--verde-bg:#16352a;--prod-bg:#2a2c30;--cinza-bg:#1b1d20;--cinza-ink:#80858c;--vermelho:#ff8a80;--vermelho-bg:#3d1c1a;--link:#7aa2ff}}
+:root[data-theme="dark"]{--bg:#15171a;--card:#1e2125;--ink:#eceef1;--muted:#9aa0a8;--line:#30343a;--amarelo-bg:#3b3200;--amarelo-ink:#ffe27a;--verde:#5fd39b;--verde-bg:#16352a;--prod-bg:#2a2c30;--cinza-bg:#1b1d20;--cinza-ink:#80858c;--vermelho:#ff8a80;--vermelho-bg:#3d1c1a;--link:#7aa2ff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding:20px 16px 40px}
+.volta{font-size:14px;color:var(--link);text-decoration:none}
+.capa{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:10px;margin:12px 0 8px;background:var(--cinza-bg);display:block}
+.ed{font-size:13px;font-weight:700;letter-spacing:.06em;color:var(--muted);margin-top:8px}
+h1{margin:2px 0 4px;font-size:26px;line-height:1.2}
+.tema{color:var(--muted);margin:0 0 14px}
+.badge{display:inline-block;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;border-radius:999px;padding:4px 10px}
+.s-publicada{background:var(--verde-bg);color:var(--verde)}
+.s-agendada{background:var(--amarelo-bg);color:var(--amarelo-ink)}
+.s-atrasada{background:var(--vermelho-bg);color:var(--vermelho)}
+.s-producao{background:var(--prod-bg);color:var(--muted)}
+.s-nao_iniciada{background:var(--cinza-bg);color:var(--cinza-ink)}
+dl{display:grid;grid-template-columns:max-content 1fr;gap:6px 16px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:14px 0}
+dt{color:var(--muted);font-size:14px} dd{margin:0}
+.links{display:grid;gap:8px}
+.links a,.links span{display:block;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;text-decoration:none;color:var(--ink)}
+.links a:hover{border-color:var(--amarelo)}
+.links span{color:var(--cinza-ink)}
+.links small{display:block;color:var(--muted);font-size:13px}
+.pag{display:flex;justify-content:space-between;margin-top:18px;font-size:14px}
+.pag a{color:var(--link);text-decoration:none} .pag span{color:var(--cinza-ink)}
+.rodape{margin-top:20px;font-size:12px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap" data-id="ed015">
+  <a class="volta" href="index.html">‹ Calendário</a>
+  <img class="capa" src="capas/ed015.jpg" alt="Capa da Ed. 15">
+  <div class="ed">ED. 15 · LIÇÃO</div>
+  <h1>No mercado: frutas, quantidades e pesos</h1>
+  <span class="badge" id="badge">…</span>
+  <dl>
+    <dt>Publicação</dt><dd id="quando">quarta, 25/11/2026, 19h</dd>
+    <dt>Semana</dt><dd>Semana 3 de 24</dd>
+    <dt>Temporada</dt><dd>T2 Pela cidade · Nível 1 (A1)</dd>
+    <dt>Personagens</dt><dd>Ana, Tide e Vendedora</dd>
+  </dl>
+  <div class="links">
+    <a href="https://tidecardoso1881.github.io/espanoldelacalle/dialogo-ed015.html">🎧 Ouvir o diálogo<small>Player com o áudio do quadrinho</small></a>
+    <a href="https://tidecardoso1881.github.io/espanoldelacalle/ed015.html">Guia detalhado<small>Guia de apoio da edição</small></a>
+    <span id="linkedin">Ler no LinkedIn<small>O link aparece depois que a edição for publicada e conferida</small></span>
+  </div>
+  <div class="pag"><a href="ed014.html">‹ Ed. 14</a><a href="ed016.html">Ed. 16 ›</a></div>
+  <div class="rodape" id="rodape"></div>
+</div>
+<script src="dados.js"></script>
+<script>
+(function(){
+  var D = window.CALENDARIO, id = document.querySelector('.wrap').dataset.id;
+  var NOMES = {publicada:'Publicada', agendada:'Agendada no LinkedIn', atrasada:'Data passou, não conferida', producao:'Em produção', nao_iniciada:'Não iniciada'};
+  var b = document.getElementById('badge');
+  if(!D){ b.textContent = 'Status indisponível'; return; }
+  var it = D.itens.filter(function(x){ return x.id === id; })[0];
+  if(!it) return;
+  var p = it.data.split('-'), q = new Date(+p[0], +p[1]-1, +p[2], parseInt(it.hora,10));
+  var st = (it.status === 'agendada' && q < new Date()) ? 'atrasada' : it.status;
+  b.textContent = NOMES[st]; b.className = 'badge s-' + st;
+  if(it.linkedin){
+    var a = document.createElement('a'); a.href = it.linkedin;
+    a.innerHTML = 'Ler no LinkedIn<small>Artigo publicado na newsletter</small>';
+    var s = document.getElementById('linkedin'); s.parentNode.replaceChild(a, s);
+  }
+  var c = new Date(D.conferencia.quando);
+  document.getElementById('rodape').textContent = 'Status conferido no LinkedIn em ' + String(c.getDate()).padStart(2,'0') + '/' + String(c.getMonth()+1).padStart(2,'0') + ' ' + String(c.getHours()).padStart(2,'0') + ':' + String(c.getMinutes()).padStart(2,'0') + ' · Español de la Calle · Ilustrações criadas com IA';
+})();
+</script>
+</body>
+</html>
