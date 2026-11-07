@@ -1,11 +1,11 @@
 // Calendário Español de la Calle · dados. Só o Cowork grava este arquivo (rotina diária, ver 11_Comunicacao\ROTINA_CALENDARIO.md).
 window.CALENDARIO = {
  "versao": 1,
- "atualizado": "2026-11-05T18:20-03:00",
+ "atualizado": "2026-11-06T22:40-03:00",
  "conferencia": {
-  "quando": "2026-11-05T18:15-03:00",
+  "quando": "2026-11-06T22:38-03:00",
   "quem": "Cowork",
-  "como": "lista de artigos agendados do LinkedIn (/article/manage/scheduled) logo depois de agendar a Sem06: 42 da newsletter, Sem01 a Sem06, todos com data e hora certas; nada publicado ainda"
+  "como": "lista de artigos agendados do LinkedIn (/article/manage/scheduled) logo depois de agendar a Sem07: 49 da newsletter, Sem01 a Sem07, todos com data e hora certas; nada publicado ainda"
  },
  "pausas": [
   {
@@ -571,7 +571,7 @@ window.CALENDARIO = {
    "temporada": "T4 Fazendo planos",
    "nivel": "Nível 1 (A1)",
    "tema": "Futuro próximo: voy a + infinitivo",
-   "status": "nao_iniciada",
+   "status": "agendada",
    "linkedin": null
   },
   {
@@ -584,7 +584,7 @@ window.CALENDARIO = {
    "temporada": "T4 Fazendo planos",
    "nivel": "Nível 1 (A1)",
    "tema": "Convidar, aceitar e recusar",
-   "status": "nao_iniciada",
+   "status": "agendada",
    "linkedin": null
   },
   {
@@ -597,7 +597,7 @@ window.CALENDARIO = {
    "temporada": "T4 Fazendo planos",
    "nivel": "Nível 1 (A1)",
    "tema": "Marcar hora e lugar: ¿quedamos a las ocho?",
-   "status": "nao_iniciada",
+   "status": "agendada",
    "linkedin": null
   },
   {
@@ -610,7 +610,7 @@ window.CALENDARIO = {
    "temporada": "T4 Fazendo planos",
    "nivel": "Nível 1 (A1)",
    "tema": "Telefone e WhatsApp: ¿aló?, ¿bueno?, ¿diga?",
-   "status": "nao_iniciada",
+   "status": "agendada",
    "linkedin": null
   },
   {
@@ -623,7 +623,7 @@ window.CALENDARIO = {
    "temporada": "T4 Fazendo planos",
    "nivel": "Nível 1 (A1)",
    "tema": "Estar + gerúndio: estoy trabajando",
-   "status": "nao_iniciada",
+   "status": "agendada",
    "linkedin": null
   },
   {
@@ -636,7 +636,7 @@ window.CALENDARIO = {
    "temporada": "T4 Fazendo planos",
    "nivel": "Nível 1 (A1)",
    "tema": "Revisão da semana",
-   "status": "nao_iniciada",
+   "status": "agendada",
    "linkedin": null
   },
   {
@@ -649,7 +649,7 @@ window.CALENDARIO = {
    "temporada": "T4 Fazendo planos",
    "nivel": "Nível 1 (A1)",
    "tema": "Gabarito da semana",
-   "status": "nao_iniciada",
+   "status": "agendada",
    "linkedin": null
   },
   {
