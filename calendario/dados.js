@@ -1,11 +1,11 @@
 // Calendário Español de la Calle · dados. Só o Cowork grava este arquivo (rotina diária, ver 11_Comunicacao\ROTINA_CALENDARIO.md).
 window.CALENDARIO = {
  "versao": 1,
- "atualizado": "2026-11-06T22:40-03:00",
+ "atualizado": "2026-11-07T00:10-03:00",
  "conferencia": {
-  "quando": "2026-11-06T22:38-03:00",
+  "quando": "2026-11-07T00:05-03:00",
   "quem": "Cowork",
-  "como": "lista de artigos agendados do LinkedIn (/article/manage/scheduled) logo depois de agendar a Sem07: 49 da newsletter, Sem01 a Sem07, todos com data e hora certas; nada publicado ainda"
+  "como": "lista de artigos agendados do LinkedIn (/article/manage/scheduled) logo depois de agendar a Sem08, a Sem09 e a Sem10: as 21 edições novas com data e hora certas (11 a 31/01); nada publicado ainda"
  },
  "pausas": [
   {
@@ -662,7 +662,7 @@ window.CALENDARIO = {
    "temporada": "T4 Fazendo planos",
    "nivel": "Nível 1 (A1)",
    "tema": "Pronomes lo, la, le: lo compro, la llamo",
-   "status": "nao_iniciada",
+   "status": "agendada",
    "linkedin": null
   },
   {
@@ -675,7 +675,7 @@ window.CALENDARIO = {
    "temporada": "T4 Fazendo planos",
    "nivel": "Nível 1 (A1)",
    "tema": "Muy e mucho: a armadilha do “muy”",
-   "status": "nao_iniciada",
+   "status": "agendada",
    "linkedin": null
   },
   {
@@ -688,7 +688,7 @@ window.CALENDARIO = {
    "temporada": "T4 Fazendo planos",
    "nivel": "Nível 1 (A1)",
    "tema": "Comparar: más que, menos que, mejor, peor",
-   "status": "nao_iniciada",
+   "status": "agendada",
    "linkedin": null
   },
   {
@@ -701,7 +701,7 @@ window.CALENDARIO = {
    "temporada": "T4 Fazendo planos",
    "nivel": "Nível 1 (A1)",
    "tema": "Possessivos: mi, tu, su, mío",
-   "status": "nao_iniciada",
+   "status": "agendada",
    "linkedin": null
   },
   {
@@ -714,7 +714,7 @@ window.CALENDARIO = {
    "temporada": "T4 Fazendo planos",
    "nivel": "Nível 1 (A1)",
    "tema": "Expressões com tener: hambre, ganas, tener que",
-   "status": "nao_iniciada",
+   "status": "agendada",
    "linkedin": null
   },
   {
@@ -727,7 +727,7 @@ window.CALENDARIO = {
    "temporada": "T4 Fazendo planos",
    "nivel": "Nível 1 (A1)",
    "tema": "Revisão do nível 1 com desafio final",
-   "status": "nao_iniciada",
+   "status": "agendada",
    "linkedin": null
   },
   {
@@ -740,7 +740,7 @@ window.CALENDARIO = {
    "temporada": "T4 Fazendo planos",
    "nivel": "Nível 1 (A1)",
    "tema": "Gabarito do nível 1",
-   "status": "nao_iniciada",
+   "status": "agendada",
    "linkedin": null
   },
   {
@@ -753,7 +753,7 @@ window.CALENDARIO = {
    "temporada": "T5 O que aconteceu",
    "nivel": "Nível 2 (A2)",
    "tema": "Pretérito indefinido dos regulares: hablé, comí",
-   "status": "nao_iniciada",
+   "status": "agendada",
    "linkedin": null
   },
   {
@@ -766,7 +766,7 @@ window.CALENDARIO = {
    "temporada": "T5 O que aconteceu",
    "nivel": "Nível 2 (A2)",
    "tema": "Irregulares do passado: fui, estuve, tuve, hice",
-   "status": "nao_iniciada",
+   "status": "agendada",
    "linkedin": null
   },
   {
@@ -779,7 +779,7 @@ window.CALENDARIO = {
    "temporada": "T5 O que aconteceu",
    "nivel": "Nível 2 (A2)",
    "tema": "Marcadores de tempo: ayer, anoche, la semana pasada",
-   "status": "nao_iniciada",
+   "status": "agendada",
    "linkedin": null
   },
   {
@@ -792,7 +792,7 @@ window.CALENDARIO = {
    "temporada": "T5 O que aconteceu",
    "nivel": "Nível 2 (A2)",
    "tema": "Hace + tempo: hace dos años",
-   "status": "nao_iniciada",
+   "status": "agendada",
    "linkedin": null
   },
   {
@@ -805,7 +805,7 @@ window.CALENDARIO = {
    "temporada": "T5 O que aconteceu",
    "nivel": "Nível 2 (A2)",
    "tema": "Contar uma viagem",
-   "status": "nao_iniciada",
+   "status": "agendada",
    "linkedin": null
   },
   {
@@ -818,7 +818,7 @@ window.CALENDARIO = {
    "temporada": "T5 O que aconteceu",
    "nivel": "Nível 2 (A2)",
    "tema": "Revisão da semana",
-   "status": "nao_iniciada",
+   "status": "agendada",
    "linkedin": null
   },
   {
@@ -831,7 +831,7 @@ window.CALENDARIO = {
    "temporada": "T5 O que aconteceu",
    "nivel": "Nível 2 (A2)",
    "tema": "Gabarito da semana",
-   "status": "nao_iniciada",
+   "status": "agendada",
    "linkedin": null
   },
   {
@@ -844,7 +844,7 @@ window.CALENDARIO = {
    "temporada": "T5 O que aconteceu",
    "nivel": "Nível 2 (A2)",
    "tema": "Pretérito perfecto: he comido",
-   "status": "nao_iniciada",
+   "status": "agendada",
    "linkedin": null
   },
   {
@@ -857,7 +857,7 @@ window.CALENDARIO = {
    "temporada": "T5 O que aconteceu",
    "nivel": "Nível 2 (A2)",
    "tema": "Acabar de + infinitivo: acabo de llegar",
-   "status": "nao_iniciada",
+   "status": "agendada",
    "linkedin": null
   },
   {
@@ -870,7 +870,7 @@ window.CALENDARIO = {
    "temporada": "T5 O que aconteceu",
    "nivel": "Nível 2 (A2)",
    "tema": "Pretérito imperfecto: cuando era niño",
-   "status": "nao_iniciada",
+   "status": "agendada",
    "linkedin": null
   },
   {
@@ -883,7 +883,7 @@ window.CALENDARIO = {
    "temporada": "T5 O que aconteceu",
    "nivel": "Nível 2 (A2)",
    "tema": "Indefinido ou imperfecto: como escolher",
-   "status": "nao_iniciada",
+   "status": "agendada",
    "linkedin": null
   },
   {
@@ -896,7 +896,7 @@ window.CALENDARIO = {
    "temporada": "T5 O que aconteceu",
    "nivel": "Nível 2 (A2)",
    "tema": "Contar uma história com começo, meio e fim",
-   "status": "nao_iniciada",
+   "status": "agendada",
    "linkedin": null
   },
   {
@@ -909,7 +909,7 @@ window.CALENDARIO = {
    "temporada": "T5 O que aconteceu",
    "nivel": "Nível 2 (A2)",
    "tema": "Revisão da temporada",
-   "status": "nao_iniciada",
+   "status": "agendada",
    "linkedin": null
   },
   {
@@ -922,7 +922,7 @@ window.CALENDARIO = {
    "temporada": "T5 O que aconteceu",
    "nivel": "Nível 2 (A2)",
    "tema": "Gabarito da temporada",
-   "status": "nao_iniciada",
+   "status": "agendada",
    "linkedin": null
   },
   {
