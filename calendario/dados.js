@@ -1,11 +1,11 @@
 // Calendário Español de la Calle · dados. Só o Cowork grava este arquivo (rotina diária, ver 11_Comunicacao\ROTINA_CALENDARIO.md).
 window.CALENDARIO = {
  "versao": 1,
- "atualizado": "2026-11-07T00:10-03:00",
+ "atualizado": "2026-11-07T01:20-03:00",
  "conferencia": {
-  "quando": "2026-11-07T00:05-03:00",
+  "quando": "2026-11-07T01:18-03:00",
   "quem": "Cowork",
-  "como": "lista de artigos agendados do LinkedIn (/article/manage/scheduled) logo depois de agendar a Sem08, a Sem09 e a Sem10: as 21 edições novas com data e hora certas (11 a 31/01); nada publicado ainda"
+  "como": "lista de artigos agendados do LinkedIn (/article/manage/scheduled) logo depois de agendar as Ed. 61 a 64 (01 a 04/02), o limite da janela de 90 dias do LinkedIn em 07/11; as demais edições da Sem11 a Sem13 seguem em rascunho aprovado; nada publicado ainda"
  },
  "pausas": [
   {
@@ -935,7 +935,7 @@ window.CALENDARIO = {
    "temporada": "T6 Pé na estrada",
    "nivel": "Nível 2 (A2)",
    "tema": "No aeroporto: check-in, bagagem e portão",
-   "status": "nao_iniciada",
+   "status": "agendada",
    "linkedin": null
   },
   {
@@ -948,7 +948,7 @@ window.CALENDARIO = {
    "temporada": "T6 Pé na estrada",
    "nivel": "Nível 2 (A2)",
    "tema": "No hotel: reservar e resolver problemas",
-   "status": "nao_iniciada",
+   "status": "agendada",
    "linkedin": null
   },
   {
@@ -961,7 +961,7 @@ window.CALENDARIO = {
    "temporada": "T6 Pé na estrada",
    "nivel": "Nível 2 (A2)",
    "tema": "No restaurante: reservar, pedir e reclamar",
-   "status": "nao_iniciada",
+   "status": "agendada",
    "linkedin": null
   },
   {
@@ -974,7 +974,7 @@ window.CALENDARIO = {
    "temporada": "T6 Pé na estrada",
    "nivel": "Nível 2 (A2)",
    "tema": "Pedir recomendações: ¿qué me recomienda?",
-   "status": "nao_iniciada",
+   "status": "agendada",
    "linkedin": null
   },
   {
